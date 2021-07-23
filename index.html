@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw Figures</title>
+  <script type="text/javascript" src="js/script.js"> </script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header-head">Draw Figures</h1>
+    <p class="header-content">Привет! Здесь ты можешь нарисовать одну или сразу несколько фигур.
+    Чтобы это сделать, нужно ввести строку, содержащую название фигуры, координаты, и параметры отрисовки: такие как цвет и заливка
+    Линии и заливка могут быть как rgb, так и rgba. Если данны параметры не введены, то по умолчанию линии черные, а заливка прозрачная.</p>
+  </header>
+
+  <main class="main">
+    <article class="article">
+      <ul class="article-list">
+        <li class="article-item">
+          <h4 class="article-head"> Названия фигур: </h4>
+          <p class="article-content">line - линия  <br> 
+            rectangle - прямоугольник <br> 
+            triangle - треугольник <br> 
+            circle - круг <br> 
+            ellipse - элипс 
+          </p>
+        </li>
+        <li class="article-item">
+          <h4 class="article-head">Ввод координат:</h4> 
+          <p class="article-content">  -p [..., ...] </p> 
+        </li>
+        <li class="article-item">
+          <h4 class="article-head">Цвет линии:</h4>
+          <p class="article-content">-с rgb(..., ..., ...) или -с rgba(..., ..., ..., ...)</p>
+        </li>
+        <li class="article-item">
+          <h4 class="article-head">Цвет заливки:</h4>
+          <p class="article-content">-b rgb(..., ..., ...) или -b rgba(..., ..., ..., ...) </p> 
+        </li>
+      </ul>
+    </article>
+
+    <section class="section-examples">
+      <h4 class="section-examples-head"> Примеры: </h4>
+      <p class="section-examples-content"> line -p [50, 50] [100, 100] -c rgb(255, 0, 0) <br> 
+              rectangle -p [50, 50] [100, 100] -c rgb(0, 255, 0) -b rgba(255, 0, 0, 0.3) <br>
+              triangle -p [50, 50] [50, 100] [100, 100] -c rgb(0, 0, 255) -b rgba(255, 0, 0, 0.3) <br>
+              circle -p [75, 75] -r 25 -c rgba(255, 0, 0, 0.8) -b rgba(0, 255, 0, 0.3) <br>
+              ellipse -p [75, 75] -r1 50 -r2 25 -c rgb(0, 255, 0) -b rgba(255, 0, 0, 0.3)
+      </p>
+    </section>
+
+    <form class="section-enter" name="vvod">
+      <p><textarea id="figures" rows="10" cols="90" name="text" ></textarea></p>
+    </form>
+
+    <div id="oshibka">
+      <p id="oshibkaStr" color="red">В строке ошибка!</p>
+    </div>
+
+    <section class="section-menu" name="menu">
+      <ul class="section-menu-list">
+        <li class="section-menu-item">
+          <a href="#" class="button" OnClick="clearB()" > Очистить холст </a>
+        </li>
+        <li class="section-menu-item">
+          <a href="#" class="button" OnClick="skstrok()" > Нарисовать </a>
+        </li>
+        <li class="section-menu-item">
+          <a href="#" value="очистить" class="button" OnClick = " document.getElementById('figures').value=''; noWarn();"> Очистить поле ввода </a>
+        </li>
+      </ul>
+    </section>
+
+    <canvas id="canvas" width="750" height="300"> </canvas>
+
+  </main>
+</body>
+</html>
